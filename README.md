@@ -29,7 +29,7 @@ Make sure the local Gentarium daemon running is at least version 1.1.0 (1010001)
 
 Clone the Sentinel repo and install Python dependencies.
 
-    $ git clone https://github.com/enterium-project/sentinel.git && cd sentinel
+    $ git clone https://github.com/genterium-project/sentinel.git && cd sentinel
     $ virtualenv ./venv
     $ ./venv/bin/pip install -r requirements.txt
 
