@@ -16,12 +16,12 @@ def test_gentariumd():
     config_text = GentariumConfig.slurp_config_file(config.gentarium_conf)
     network = 'mainnet'
     is_testnet = False
-    genesis_hash = u'00000ffd590b1485b3caadc19b22e6379c733355108f107a430458cdf3407ab6'
+    genesis_hash = u'00000ebdf1f5d60db781cf3d826a81eaceb33746c22739245e0ef0b4a0316747'
     for line in config_text.split("\n"):
         if line.startswith('testnet=1'):
             network = 'testnet'
             is_testnet = True
-            genesis_hash = u'00000bafbc94add76cb75e2ec92894837288a481e5c005f6563d91623bf8bc2c'
+            genesis_hash = u'000009e88bb6c7e27da3bb9b9a986b37950be4b5acb6fd7cc19faed35bb6578a'
 
     creds = GentariumConfig.get_rpc_creds(config_text, network)
     gentariumd = GentariumDaemon(**creds)
@@ -29,7 +29,7 @@ def test_gentariumd():
 
     assert hasattr(gentariumd, 'rpc_connection')
 
-    # Gentarium testnet block 0 hash == 00000bafbc94add76cb75e2ec92894837288a481e5c005f6563d91623bf8bc2c
+    # Gentarium testnet block 0 hash == 0x000009E88BB6C7E27DA3BB9B9A986B37950BE4B5ACB6FD7CC19FAED35BB6578A
     # test commands without arguments
     info = gentariumd.rpc_command('getinfo')
     info_keys = [
